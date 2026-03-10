@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>3RD QUARTER ICT</title>
+
+
+
+<style>
+
+body {
+    background-color: #eef2f3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    font-family: sans-serif;
+  }
+
+  /* The Container for all 4 images */
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columns, 2 rows */
+    gap: 20px;
+    padding: 20px;
+  }
+
+  /* The Style for each picture */
+  .pic {
+    width: 800px;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 15px;
+    border: 4px solid #fff;
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: float 4s ease-in-out infinite;
+  }
+
+  /* Adding a delay so they float naturally (not all at once) */
+  .pic:nth-child(2) { animation-delay: 0.5s; }
+  .pic:nth-child(3) { animation-delay: 1s; }
+  .pic:nth-child(4) { animation-delay: 1.5s; }
+
+  /* Hover effect: Zoom and Glow */
+  .pic:hover {
+    transform: scale(1.1) rotate(2deg);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+    z-index: 10;
+    cursor: pointer;
+  }
+
+  /* The Floating Motion */
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+  }
+
+/* TOP NAVBAR - Purplish-Blue */
+#navbar{
+  position: fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:70px;
+  background: linear-gradient(90deg, #4f46e5, #3b82f6); /* purple to blue */
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:20px;
+  box-shadow:0 5px 20px rgba(0,0,0,0.3);
+  z-index:1000;
+}
+
+#navbar a{
+  color:#fff; /* white text */
+  text-decoration:none;
+  padding:10px 18px;
+  border-radius:10px;
+  font-weight:bold;
+  transition:0.3s;
+}
+
+#navbar a:hover{
+  background:#c7d2fe; /* light purplish-blue hover */
+  color:#4f46e5; /* dark purple text on hover */
+  transform:scale(1.1);
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+margin:0;
+font-family:"Palatino Linotype","Georgia",serif;
+background:linear-gradient(120deg,#d9e4ff,#e6dcff,#dff7ff);
+background-size:400% 400%;
+animation:bgMove 12s infinite alternate;
+}
+
+@keyframes bgMove{
+0%{background-position:left}
+100%{background-position:right}
+}
+
+/* SIDEBAR */
+
+.sidebar{
+position:fixed;
+left:0;
+top:0;
+width:220px;
+height:100%;
+background:linear-gradient(#3949ab,#5c6bc0);
+padding-top:40px;
+box-shadow:3px 0 15px rgba(0,0,0,0.3);
+}
+
+.sidebar a{
+display:block;
+color:white;
+text-decoration:none;
+padding:15px;
+font-size:18px;
+transition:0.3s;
+}
+
+.sidebar a:hover{
+background:#7986cb;
+padding-left:25px;
+}
+
+/* MAIN */
+
+.container{
+margin-left:240px;
+width:70%;
+max-width:1000px;
+background:linear-gradient(to bottom right,#ffffff,#eef3ff);
+padding:60px;
+border-radius:25px;
+box-shadow:0 20px 40px rgba(0,0,0,0.15);
+border:2px solid #7986cb;
+color:#2e3a59;
+margin-top:50px;
+margin-bottom:50px;
+}
+
+/* TITLE */
+
+h1{
+text-align:center;
+font-size:46px;
+letter-spacing:6px;
+margin-bottom:60px;
+color:#3949ab;
+border-bottom:3px solid #7986cb;
+padding-bottom:15px;
+animation:floatTitle 3s infinite ease-in-out;
+}
+
+@keyframes floatTitle{
+0%{transform:translateY(0)}
+50%{transform:translateY(-6px)}
+100%{transform:translateY(0)}
+}
+
+.section{
+margin-bottom:70px;
+}
+
+.section-title{
+text-align:center;
+font-size:30px;
+margin-bottom:30px;
+color:#3949ab;
+background:#e8eaf6;
+padding:15px;
+border-radius:12px;
+border:1px solid #7986cb;
+}
+
+ol{
+padding-left:30px;
+}
+
+ol>li{
+margin-bottom:35px;
+font-size:22px;
+font-weight:bold;
+}
+
+ul{
+margin-top:15px;
+padding-left:25px;
+}
+
+ul li{
+font-size:18px;
+margin:12px 0;
+background:#f1f4ff;
+padding:12px 16px;
+border-radius:10px;
+border-left:5px solid #5c6bc0;
+transition:0.3s;
+}
+
+ul li:hover{
+transform:translateY(-5px);
+box-shadow:0 10px 20px rgba(0,0,0,0.15);
+}
+
+.quote{
+font-style:italic;
+background:#e0e7ff;
+border-left:5px solid #3949ab;
+}
+
+footer{
+text-align:center;
+margin-top:40px;
+padding-top:15px;
+border-top:1px solid #7986cb;
+font-size:14px;
+color:#3949ab;
+}
+
+/* BUTTONS */
+
+.buttons{
+text-align:center;
+margin-top:40px;
+}
+
+button{
+padding:12px 20px;
+margin:10px;
+border:none;
+border-radius:10px;
+background:linear-gradient(45deg,#3949ab,#00acc1);
+color:white;
+cursor:pointer;
+}
+
+button:hover{
+transform:scale(1.1);
+}
+
+/* COOKIE */
+
+.cookie{
+position:fixed;
+bottom:0;
+left:0;
+width:100%;
+background:#3949ab;
+color:white;
+padding:15px;
+text-align:center;
+display:none;
+}
+
+.cookie button{
+background:#00acc1;
+margin-left:10px;
+}
+
+</style>
+
+<script>
+
+window.onload=function(){
+document.getElementById("cookieBox").style.display="block";
+}
+
+function showAlert(){
+alert("Welcome to the 3rd Quarter ICT Reflection!");
+}
+
+function confirmAction(){
+var result=confirm("Are you enjoying learning ICT?");
+if(result){
+alert("Great! Keep exploring technology.");
+}else{
+alert("That's okay, keep practicing!");
+}
+}
+
+function askName(){
+var name=prompt("Enter your name:");
+if(name){
+alert("Hello "+name+"! Welcome!");
+}
+}
+
+function acceptCookie(){
+document.getElementById("cookieBox").style.display="none";
+}
+
+
+
+</script>
+
+</head>
+
+<body>
+
+
+<nav id="navbar">
+  <a href="Personal Info.html">Home</a>
+  <a href="ICT.html">1ST AND 2ND QUARTER ICT</a>
+  <a href="AP.html">2ND QUARTER AP</a>
+  <a href="ICT3RDQRT.html">3RD QUARTER ICT</a>
+  <a href="AP4THQTR.html">4TH QUARTER AP</a>
+  <a href="ICT4THQUARTER.html">4TH QUARTER ICT</a>
+<a href="NMT.html">Noli Me Tangere</a>
+
+</nav>
+
+<div class="sidebar">
+<a href="#lessons">Lessons</a>
+<a href="#events">Events</a>
+<a href="#interact">Interaction</a>
+</div>
+
+<div class="container">
+
+<h1>3RD QUARTER ICT</h1>
+
+<div class="section" id="lessons">
+<div class="section-title">Lessons</div>
+
+<ol>
+
+<li>Formatting Text with CSS - Text Properties & Values
+<ul>
+<li>Here I Learned about the different ways in learning css and how to format text and their text properties, but these cannot be done  without learning the meaning of the word typography. Here i learned the different types of properties and values that CSS has to offer, starting from its style, to its position, and to its color. This lesson has helped me to learn the basics of CSS and its basic properties and how to edit them normally. </li>
+
+<li>I also learned about the different kinds of variants on how to make the case bigger or smaller depending on the use and what i need when i am coding and writing or creating a file needed or required by the teacher. I also learned how shortcuts work like word wrap and so much more.</li>
+</ul>
+</li>
+
+<img src="1.jpg" class="pic" alt="Image 2" style="max-width: 100%; height: auto;">
+
+
+<li>Formatting Text with CSS - Indent
+<ul>
+<li>I  learned about the text indent where it will help me indent my text to make it viewed by the audience to make it a bigger meaning and let them view it as the bigger picture, I also learned about the line spacing and text-transform letting me arrange text and their style depending on the project. I also learned how to properly change the background color to make it formal with the theme.</li>
+</ul>
+</li>
+
+<img src="2.jpg" class="pic" alt="Image 2" style="max-width: 100%; height: auto;">
+
+
+<li>Formatting Layout with CSS
+<ul>
+<li>Here relies the general term Box Model where it helps you understand the layout of what you need in CSS. This will help you arrange your contents precisely and the formal area where you need to put your data and information without a hassle and overthinking where to put it. I learned also about Element positioning to help me place elements to a normal and suited place to avoid bad arrangements and for the reader to get the main idea or picture. I also learned about offset where it helps me set distance of the element from another elements when i place them. Here also relies the float where it helps me control the element and be in a specified block location on a page left, right or none. Wrapping text around an element is general and helps me with making CSS easier.</li>
+
+<li>I also learned about more on the background property and I did not know it had a lot to offer from the easiest to hardest, or wanting to repeat pictures or not. It made using CSS and how to edit content easier, I also learned how to put pictures and organize them in a specific area.</li>
+
+<li>I also learned about margins to make the area or the screen more organized when I put data and to not have a corrupted area or layout for readers to view and watch.</li>
+</ul>
+</li>
+
+<img src="3.jpg" class="pic" alt="Image 3" style="max-width: 100%; height: auto;">
+
+
+<li>Formatting Border & Table
+<ul>
+<li>Here I learned how Border or creating them are really helpful not only for the organizement, but on how readers view your content. It will not just help readers see how organized the content is, but they will also see the big picture on the information that you are showing and you want to show.</li>
+
+<li>Formatting Border and Table helps me frame and create borders that were never seen before and it helps me organize data more easily and fastly for no hassle and disappointment.</li>
+
+<li>I also learned how padding helps me space elements from one another and more organized area to avoid unnecessary placements of pictures and elements that i plan to place.</li>
+
+<li>Table layout is a general meaning for layout like a table to help the readers view it as a table layout on the information that I will be placing.</li>
+
+</ul>
+</li>
+
+<img src="4.jpg" class="pic" alt="Image 4" style="max-width: 100%; height: auto;">
+
+
+</ol>
+
+</div>
+
+<div class="section" id="events">
+<div class="section-title">Events</div>
+
+<ol start="5">
+
+<li>VPOP
+<ul>
+<li>Vpop shaped not only myself, but also my section. It helped me know more about myself and what life has to offer. This event shaped my leadership skills and how to communicate with other people. It helped me show my love for dancing and singing and helped me share the gift that life has to offer. It showed me that in life, it doesn't always have to be academics, but also you can have fun at the same time.</li>
+</ul>
+</li>
+
+<img src="a.JPG" class="pic" alt="Vpop" style="max-width: 100%; height: auto;">
+
+
+<li>MVP
+<ul>
+<li>Mvp, this was a big jump and a big challenge, this event has mostly shaped my chemistry with my partner and it has told me that I can also voice out, not only for my opinions, but also for the truth, MVP isnt just about winning, its about creating bonds that were never made and help one another be helpful with themselves, it helped me with my confidence and speaking out.</li>
+
+<li class="quote">“I may not have won, but the memories made will always be remembered.”</li>
+</ul>
+</li>
+
+<img src="b.JPG" class="pic" alt="MVP" style="max-width: 100%; height: auto;">
+
+
+<li>Math Idol
+<ul>
+<li>Here in math idol, was a different challenge, from helping my team create their song, to helping them in real performance. To help them calm down and cheer them when they are on the real stage. The time and effort placed given was a help to them and a big chance for them to win. I may not have joined, but I have shaped them to their absolute limits and their talents and skills.</li>
+</ul>
+
+</li>
+
+<img src="C.JPG" class="pic" alt="Math Idol" style="max-width: 100%; height: auto;">
+
+
+
+</ol>
+
+</div>
+
+<div class="buttons" id="interact">
+<button onclick="showAlert()">Alert</button>
+<button onclick="confirmAction()">Confirm</button>
+<button onclick="askName()">Prompt</button>
+</div>
+
+<footer>
+3rd Quarter ICT Reflection
+</footer>
+
+</div>
+
+<div class="cookie" id="cookieBox">
+This website uses cookies to improve your experience.
+<button onclick="acceptCookie()">Accept</button>
+</div>
+
+</body>
+</html>

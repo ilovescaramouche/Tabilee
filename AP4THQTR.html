@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="tl">
+<head>
+    <meta charset="UTF-8">
+    <title>AP 9 Reviewer - 4th Quarter Full Version</title>
+
+    <style>
+
+body {
+    background-color: #f8fafc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px; /* Adds space so it doesn't touch the edges */
+  }
+
+  /* THE DESIGN (CSS) */
+  .pic {
+    /* 1. AUTO-FIT LOGIC: Makes it look 'normal' on any screen */
+    max-width: 100%;    /* Never wider than the screen */
+    width: 400px;       /* The 'ideal' size you want it to be */
+    height: auto;       /* Keeps the original shape (no squishing!) */
+    
+    /* 2. STYLING: The "Edits" */
+    border-radius: 15px;
+    border: 5px solid white;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    
+    /* 3. THE FLOAT: Smooth up and down motion */
+    animation: floating 4s ease-in-out infinite;
+    transition: transform 0.3s ease;
+  }
+
+  /* Movement animation */
+  @keyframes floating {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+  }
+
+  /* Small interaction when touched/hovered */
+  .pic:hover {
+    transform: scale(1.03);
+  }
+
+/* FLOATING TEXT EFFECT FOR ALL SECTION CONTENT */
+section h1, section h2, section p {
+    display: block; /* full-width blocks */
+    padding: 12px 18px;
+    border-radius: 12px;
+    animation: floatText 4s ease-in-out infinite alternate;
+    transition: all 0.3s ease;
+}
+
+/* FLOATING ANIMATION */
+@keyframes floatText {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-6px); }
+    100% { transform: translateY(0px); }
+}
+
+/* BACKGROUND COLORS & TEXT COLORS PER THEME */
+.dev-theme h1, .dev-theme h2, .dev-theme p {
+    background: rgba(123, 31, 162, 0.15); /* Light purple */
+    color: #4a148c;
+}
+
+.agri-theme h1, .agri-theme h2, .agri-theme p {
+    background: rgba(46, 125, 50, 0.15); /* Light green */
+    color: #1b5e20;
+}
+
+.industry-theme h1, .industry-theme h2, .industry-theme p {
+    background: rgba(21, 101, 192, 0.15); /* Light blue */
+    color: #0d47a1;
+}
+
+.service-theme h1, .service-theme h2, .service-theme p {
+    background: rgba(255, 193, 7, 0.15); /* Light yellow/orange */
+    color: #ff6f00;
+}
+
+/* HOVER POP-UP EFFECT */
+section h1:hover, section h2:hover, section p:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+}
+
+        /* PROGRESS BAR */
+        #progressBar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 6px;
+            background: #d32f2f;
+            width: 0%;
+            z-index: 1002;
+        }
+
+        /* BODY & ANIMATED BACKGROUND */
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            line-height: 1.8;
+            background: linear-gradient(-45deg, #fff3e0, #fbe9e7, #e1f5fe, #f3e5f5);
+            background-size: 400% 400%;
+            animation: bgMove 15s ease infinite;
+            background-attachment: fixed;
+        }
+
+        @keyframes bgMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* SIDEBAR */
+        .sidebar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 230px;
+            height: 100%;
+            background: rgba(62, 39, 35, 0.95);
+            backdrop-filter: blur(10px);
+            padding-top: 40px;
+            z-index: 1000;
+            box-shadow: 4px 0 15px rgba(0,0,0,0.3);
+        }
+
+        .sidebar a {
+            display: block;
+            color: #d7ccc8;
+            padding: 20px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .sidebar a:hover { 
+            background: rgba(255,255,255,0.1);
+            color: #ffffff;
+            padding-left: 30px;
+        }
+
+        /* MAIN AREA */
+        .main {
+            margin-left: 260px;
+            margin-right: 40px;
+            padding: 40px;
+        }
+
+        /* FLOATING GLASS CARDS */
+        section {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            padding: 45px;
+            margin-bottom: 60px;
+            border-radius: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        section:hover { 
+            transform: translateY(-15px);
+            box-shadow: 0 30px 70px rgba(0,0,0,0.15);
+            background: rgba(255, 255, 255, 0.85);
+        }
+
+        /* THEME HEADERS */
+        .dev-header { text-align: center; border: 4px solid #4a148c; padding: 30px; border-radius: 20px; background: rgba(123, 31, 162, 0.1); margin-bottom: 30px; }
+        .agri-header { text-align: center; border: 4px solid #1b5e20; padding: 30px; border-radius: 20px; background: rgba(46, 125, 50, 0.1); margin-bottom: 30px; }
+        .industry-header { text-align: center; border: 4px solid #0d47a1; padding: 30px; border-radius: 20px; background: rgba(21, 101, 192, 0.1); margin-bottom: 30px; }
+        .service-header { text-align: center; border: 4px solid #bf360c; padding: 30px; border-radius: 20px; background: rgba(239, 108, 0, 0.1); margin-bottom: 30px; }
+
+        h1 { font-size: 2.2em; margin-bottom: 20px; }
+        h2 { padding: 15px; border-radius: 10px; margin-top: 30px; }
+
+        .dev-theme h1, .dev-theme strong { color: #4a148c; }
+        .dev-theme h2 { background: rgba(123, 31, 162, 0.1); color: #4a148c; border-left: 8px solid #4a148c; }
+
+        .agri-theme h1, .agri-theme strong { color: #1b5e20; }
+        .agri-theme h2 { background: rgba(46, 125, 50, 0.1); color: #1b5e20; border-left: 8px solid #1b5e20; }
+
+        .industry-theme h1, .industry-theme strong { color: #0d47a1; }
+        .industry-theme h2 { background: rgba(21, 101, 192, 0.1); color: #0d47a1; border-left: 8px solid #0d47a1; }
+
+        .service-theme h1, .service-theme strong { color: #bf360c; }
+        .service-theme h2 { background: rgba(239, 108, 0, 0.1); color: #bf360c; border-left: 8px solid #bf360c; }
+
+        /* FLOATING CONTROLS */
+        .controls {
+            position: sticky;
+            top: 20px;
+            z-index: 999;
+            margin-bottom: 40px;
+            background: rgba(62, 39, 35, 0.95);
+            padding: 15px;
+            border-radius: 20px;
+            display: inline-block;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .btn-custom {
+            padding: 12px 25px;
+            margin: 5px;
+            border: 1px solid rgba(255,255,255,0.3);
+            border-radius: 12px;
+            background: rgba(255,255,255,0.1);
+            color: #ffffff;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn-custom:hover { background: #ffffff; color: #3e2723; }
+
+        p { font-size: 1.15em; text-align: justify; }
+
+        /* COOKIE BOX */
+        .cookie {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 350px;
+            background: rgba(62, 39, 35, 0.98);
+            color: white;
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+            display: none;
+            z-index: 2000;
+        }
+        
+        button#acceptBtn {
+            background: #d32f2f;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+#navbar{
+  position: fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:70px;
+  background: linear-gradient(90deg,#4c1d95,#a78bfa);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:20px;
+  box-shadow:0 5px 20px rgba(0,0,0,0.3);
+  z-index:1000;
+}
+
+#navbar a{
+  color:#fff;
+  text-decoration:none;
+  padding:10px 18px;
+  border-radius:10px;
+  font-weight:bold;
+  transition:0.3s;
+}
+
+#navbar a:hover{
+  background:#d8b4fe;
+  color:#4c1d95;
+  transform:scale(1.1);
+}
+
+    </style>
+
+    <script>
+        window.onscroll = function() {
+            var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            var scrolled = (winScroll / height) * 100;
+            document.getElementById("progressBar").style.width = scrolled + "%";
+        }
+        window.onload = function() { document.getElementById("cookieBox").style.display = "block"; }
+        function acceptCookie() { document.getElementById("cookieBox").style.display = "none"; }
+    </script>
+</head>
+
+<body>
+
+<nav id="navbar">
+  <a href="Personal Info.html">Home</a>
+  <a href="ICT.html">1ST AND 2ND QUARTER ICT</a>
+  <a href="AP.html">2ND QUARTER AP</a>
+  <a href="ICT3RDQRT.html">3RD QUARTER ICT</a>
+  <a href="AP4THQTR.html">4TH QUARTER AP</a>
+  <a href="ICT4THQUARTER.html">4TH QUARTER ICT</a>
+<a href="NMT.html">Noli Me Tangere</a>
+
+</nav>
+
+<div id="progressBar"></div>
+
+<div class="sidebar">
+    <div style="color: #fff; padding: 20px; font-size: 0.8em; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.1); letter-spacing: 2px; font-weight: bold;">AP 9 REVIEWER</div>
+    <a href="#lesson1">🟣 Aralin 1: Kaunlaran</a>
+    <a href="#lesson2">🟢 Aralin 2: Agrikultura</a>
+    <a href="#lesson3">🔵 Aralin 3: Industriya</a>
+    <a href="#lesson4">🟠 Aralin 4: Paglilingkod</a>
+</div>
+
+<div class="main">
+    <div class="controls">
+        <button class="btn-custom" onclick="alert('Gabay sa Pag-aaral: Siguraduhing kabisado ang mga batas (RA) at mga ahensya ng pamahalaan gaya ng DA at DTI!')">💡 Gabay sa Pag-aaral</button>
+        <button class="btn-custom" onclick="confirm('Handa ka na ba para sa iyong pagsusulit?') ? alert('Magaling! Ipagpatuloy ang pagbabasa sa buong detalye.') : alert('Huwag mag-alala, marami pang oras para mag-review!')">🚀 Handa Ka Na Ba?</button>
+    </div>
+
+    <!-- LESSON 1 -->
+    <section id="lesson1" class="dev-theme">
+        <div class="dev-header">
+            <h1 style="margin:0;">LESSON 1: PAMBANSANG KAUNLARAN</h1>
+        </div>
+        <h1>I. KONSEPTO NG KAUNLARAN</h1>
+
+<img src="pb1.jpg" 
+     class="pic" 
+     alt="Pambsanang Kaunlaran" 
+     style="width: 100%; max-width: 400px; height: auto; display: block; margin: auto;">
+        <h2>1. Kahulugan at Pananaw</h2>
+        <p>Ang <strong>Pambansang Kaunlaran</strong> ay tumutukoy sa kakayahan ng isang bansa na mapabuti ang aspetong panlipunan, pampolitika, at pang-ekonomiya. Ayon kay <strong>Feliciano Fajardo</strong>, ito ay isang progresibo at aktibong proseso ng pagpapabuti ng kondisyon ng tao. Hindi lamang ito nasusukat sa paglago ng ekonomiya kundi sa pagbawas ng kahirapan, kawalan ng trabaho, at di-pagkakapantay-pantay sa lipunan.</p>
+        <p>Para kay <strong>Amartya Sen</strong>, isang ekonomista at Nobel Prize winner, ang tunay na pag-unlad ay ang pagtatamo ng "yaman ng buhay" sa halip na yaman lamang ng ekonomiya. Binibigyang-diin nito ang pagpapalawak sa kakayahan at kalayaan ng mga tao na piliin ang buhay na nais nilang tamasahin.</p>
+        <h2>2. Pag-unlad vs. Pagsulong</h2>
+        <ul>
+            <li><p><strong>Pag-unlad (Development):</strong> Ito ay ang kabuuang pagbabago sa istruktura ng lipunan at gawi ng mga tao. Ito ay isang malawak na konsepto na kinapapalooban ng pagbabago sa antas ng pamumuhay, edukasyon, at kalusugan.</p></li>
+            <li><p><strong>Pagsulong (Growth):</strong> Ito ay itinuturing na bunga o produkto ng pag-unlad. Ito ay nasusukat at nakikita nang pisikal, tulad ng pagdami ng mga imprastraktura, gusali, at pagtaas ng Gross Domestic Product (GDP) ng bansa.</p></li>
+        </ul>
+        <h1>II. MGA ANTAS NG KAUNLARAN</h1>
+
+<img src="pb.jpg" 
+     class="pic" 
+     alt="Pambansang Kaunlaran" 
+     style="width: 100%; max-width: 400px; height: auto; display: block; margin: auto;">
+        <h2>1. Klasipikasyon ng mga Bansa</h2>
+        <ul>
+            <li><p><strong>Maunlad na Bansa (Developed Countries):</strong> Mga bansang may mataas na antas ng industriyalisasyon, mataas na per capita income, at mataas na Human Development Index (HDI). Halimbawa: Japan, USA, Germany, at South Korea.</p></li>
+            <li><p><strong>Umuunlad na Bansa (Developing Countries):</strong> Mga bansang may umuusbong na industriya ngunit umaasa pa rin nang malaki sa sektor ng agrikultura. Halimbawa: Pilipinas, Thailand, at Indonesia.</p></li>
+            <li><p><strong>Papaunlad na Bansa (Underdeveloped Countries):</strong> Mga bansang may mababang antas ng teknolohiya, edukasyon, at kalusugan.</p></li>
+        </ul>
+    </section>
+
+    <!-- LESSON 2 -->
+    <section id="lesson2" class="agri-theme">
+        <div class="agri-header">
+            <h1 style="margin:0;">LESSON 2: SEKTOR NG AGRIKULTURA</h1>
+        </div>
+        <h1>I. ANG AGRIKULTURA</h1>
+
+<img src="a1.jpg" 
+     class="pic" 
+     alt="Agriculture" 
+     style="width: 100%; max-width: 400px; height: auto; display: block; margin: auto;">
+        <h2>1. Kahulugan at Pinagmulan</h2>
+        <p>Ang <strong>Agrikultura</strong> ay isang agham at sining na may kinalaman sa pagpaparami ng mga hayop at mga tanim o halaman. Sakop nito ang lahat ng gawaing kinasasangkutan ng pag-aalaga sa kalikasan para sa ikabubuhay ng tao. Nagmula ang salitang ito sa Latin na <strong>AGER</strong> (Lupa) at <strong>CULTURA</strong> (Paglilinang).</p>
+        <h2>2. Mga Sangay ng Agrikultura</h2>
+        <ul>
+            <li><p><strong>Pagsasaka (Crops):</strong> Nakatuon sa mga pangunahing pananim tulad ng palay, mais, niyog, tubo, saging, at pinya. Noong nakaraang tala, ang kita mula rito ay umabot sa <strong>₱797.731 bilyon</strong>.</p></li>
+            <li><p><strong>Pangingisda (Fisheries):</strong> Nahahati sa tatlong uri: Komersiyal (pangingisda sa dagat gamit ang malalaking bangka), Munisipal (maliitang pangingisda sa loob ng 15 kilometro mula sa baybayin), at Aquaculture (pag-aalaga at pagpaparami ng isda sa mga fish pond).</p></li>
+            <li><p><strong>Paghahayupan (Livestock):</strong> Pag-aalaga ng hayop para sa karne, hibla, gatas, at itlog. Sakop nito ang tamang breeding at pagpapalaki ng mga hayop tulad ng baka, baboy, at manok.</p></li>
+            <li><p><strong>Paggugubat (Forestry):</strong> Pinagkukunan ng plywood, tabla, troso, at veneer. Kasama rin dito ang mga produktong hindi kahoy tulad ng rattan, nipa, at kawayan.</p></li>
+        </ul>
+        <h1>II. MGA PATAKARAN AT PROGRAMA</h1>
+
+<img src="a2.jpg" 
+     class="pic" 
+     alt="Agriculture" 
+     style="width: 100%; max-width: 400px; height: auto; display: block; margin: auto;">
+        <h2>1. Klasipikasyon ng mga Bansa</h2>
+        <ul>
+        <h2>1. Batas sa Lupa at Reporma</h2>
+        <ul>
+            <li><p><strong>Land Registration Act ng 1902:</strong> Ipinatupad noong panahon ng Amerikano para sa Sistemang Torrens o pagpapatala ng mga titulo ng lupa upang maiwasan ang agawan.</p></li>
+            <li><p><strong>Agricultural Land Reform Code (1963):</strong> Nilagdaan ni Diosdado Macapagal noong Agosto 8, 1963, na naglalayong palayain ang mga magsasaka sa sistemang kasama at utang.</p></li>
+            <li><p><strong>Batas Republika Blg. 6657 (CARL 1988):</strong> Ang "Comprehensive Agrarian Reform Law" sa ilalim ni Corazon Aquino na naglalayong ipamahagi ang lahat ng lupang agrikultural sa mga magsasakang walang sariling lupa.</p></li>
+        </ul>
+    </section>
+
+    <!-- LESSON 3 -->
+    <section id="lesson3" class="industry-theme">
+        <div class="industry-header">
+            <h1 style="margin:0;">LESSON 3: SEKTOR NG INDUSTRIYA</h1>
+        </div>
+
+        <h1>I. ANG INDUSTRIYA</h1>
+
+<img src="i1.jpg" 
+     class="pic" 
+     alt="Industry" 
+     style="width: 100%; max-width: 400px; height: auto; display: block; margin: auto;">
+        <h2>1. Klasipikasyon ng mga Bansa</h2>
+        <ul>
+        <p>Ang <strong>Industriya</strong> ay tumutukoy sa pagproseso ng mga hilaw na materyal at paggawa ng mga produkto na kinakailangan para sa pampublikong pamilihan. Ito ay kilala rin bilang <strong>Sekundaryang Sektor</strong>. Ang <strong>Industriyalisasyon</strong> naman ay ang paggamit ng mga makinarya at makabagong kagamitan sa paglinang ng mga industriya upang mapabilis ang produksyon at mapataas ang halaga ng mga likas na yaman.</p>
+
+        <h1>II. MGA SUB-SEKTOR NG INDUSTRIYA</h1>
+
+<img src="i2.jpg" 
+     class="pic" 
+     alt="Industry" 
+     style="width: 100%; max-width: 400px; height: auto; display: block; margin: auto;">
+        <ul>
+            <li><p><strong>Pagmimina (Mining):</strong> Pagkuha at pagproseso ng mga yamang mineral mula sa lupa, tulad ng ginto, nikel, at bakal, upang gawing tapos na produkto.</p></li>
+            <li><p><strong>Pagmamanupaktura (Manufacturing):</strong> Dito nagaganap ang pisikal o kemikal na transpormasyon ng mga materyal upang makabuo ng mga bagong kagamitan, sa pamamagitan man ng manual labor o makina.</p></li>
+            <li><p><strong>Konstruksyon (Construction):</strong> Pagtatayo ng mga gusali, kalsada, tulay, at iba pang imprastraktura na kailangan para sa serbisyong panlipunan at paglago ng bansa.</p></li>
+            <li><p><strong>Utilities:</strong> Pagtugon sa mga pangunahing pangangailangan ng mamamayan tulad ng tubig, kuryente, at gas.</p></li>
+        </ul>
+
+        <h1>III. MGA PATAKARANG PANG-EKONOMIYA</h1>
+
+<img src="i3.jpg" 
+     class="pic" 
+     alt="Industry" 
+     style="width: 100%; max-width: 400px; height: auto; display: block; margin: auto;">
+        <ul>
+            <li><p><strong>Filipino First Policy:</strong> Programang sinimulan ni Carlos P. Garcia na naglalayong bigyan ng higit na malaking partisipasyon ang mga Pilipino sa ekonomiya at negosyo sa bansa.</p></li>
+            <li><p><strong>Oil Deregulation Law (R.A. 8479):</strong> Nagbukas ng kompetisyon sa industriya ng langis kung saan ang malayang pamilihan ang nagdidikta sa presyo sa halip na ang pamahalaan.</p></li>
+            <li><p><strong>Retail Trade Liberalization Act (R.A. 8762):</strong> Nagpawalang-bisa sa dating R.A. 1180 at binuksan ang sektor ng retail trade sa mga dayuhang mamumuhunan sa ilalim ng mga partikular na kondisyon.</p></li>
+            <li><p><strong>Build-Operate-Transfer (BOT) (R.A. 6957):</strong> Isang batas na nagpapahintulot sa pribadong sektor na bumuo ng mga proyekto ng gobyerno gamit ang sarili nilang pondo at patakbuhin ito sa loob ng itinakdang panahon (karaniwang 25 taon).</p></li>
+        </ul>
+    </section>
+
+   <!-- LESSON 4 -->
+<section id="lesson4" class="service-theme">
+    <div class="service-header">
+        <h1 style="margin:0;">LESSON 4: PAGLILINGKOD SA BAYAN</h1>
+    </div>
+
+    <h1>I. KONSEPTO NG PAGLILINGKOD</h1>
+
+<img src="p1.jpg" 
+     class="pic" 
+     alt="Paglilingkod" 
+     style="width: 100%; max-width: 400px; height: auto; display: block; margin: auto;">
+    <h2>1. Kahulugan</h2>
+    <p>Ang <strong>Paglilingkod sa Bayan</strong> ay tumutukoy sa mga gawaing isinasagawa ng isang indibidwal o grupo upang makatulong sa kapwa, sa komunidad, at sa bansa. Ito ay isang responsibilidad ng bawat mamamayan upang mapaunlad ang kapaligiran at lipunan. Sakop nito ang mga programang pampamahalaan, boluntaryong proyekto, at mga gawaing pansibiko.</p>
+
+    <h2>2. Layunin ng Paglilingkod</h2>
+    <ul>
+        <li><p>Magbigay ng tulong at suporta sa mga nangangailangan.</p></li>
+        <li><p>Palakasin ang pakikipag-ugnayan sa komunidad.</p></li>
+        <li><p>Mapalaganap ang diwa ng responsibilidad at kabayanihan.</p></li>
+        <li><p>Mapabuti ang kalidad ng buhay sa lipunan.</p></li>
+    </ul>
+
+    <h1>II. MGA ANYO NG PAGLILINGKOD</h1>
+
+<img src="p2.jpg" 
+     class="pic" 
+     alt="Paglilingkod" 
+     style="width: 100%; max-width: 400px; height: auto; display: block; margin: auto;">
+
+    <h2>1. Boluntaryo</h2>
+    <p>Ito ay paglilingkod na kusang-loob, kadalasang isinasagawa sa pamamagitan ng mga NGOs, simbahan, o lokal na komunidad. Halimbawa ay pamimigay ng relief goods, pagtuturo sa mga kabataan, at environmental clean-ups.</p>
+
+    <h2>2. Pormal na Paglilingkod</h2>
+    <p>Ito ay mga serbisyong ibinibigay sa ilalim ng pamahalaan o mga organisasyon tulad ng barangay health workers, police force, at iba pang ahensiya. Layunin nitong masiguro ang kaayusan, seguridad, at kaunlaran ng komunidad.</p>
+
+    <h2>3. Impormal / Illegal na Paglilingkod</h2>
+    <p>Ang <strong>Impormal o Illegal na Paglilingkod</strong> ay mga gawaing pampubliko o pansibiko na isinasagawa sa labas ng batas o walang opisyal na pahintulot. Kadalasan, ito ay ginagawa nang walang regulasyon at maaaring magdulot ng panganib o problema sa komunidad. Bagaman may intensiyon na makatulong, ito ay hindi kinikilala ng pamahalaan at maaring labag sa umiiral na batas.</p>
+
+    <ul>
+        <li><p><strong>Vigilantism:</strong> Kusang-loob na pagpapatupad ng batas ng isang indibidwal o grupo nang hindi awtorisado, gaya ng pagdakip sa mga nahuling kriminal o pagbibigay ng parusa.</p></li>
+        <li><p><strong>Unofficial Crowdfunding:</strong> Pangangalap ng pondo o donasyon para sa proyekto ng komunidad nang walang awtorisadong proseso o regulasyon, na maaaring maloko o maabuso.</p></li>
+        <li><p><strong>Informal Enforcement:</strong> Pagpapatupad ng patakaran o regulasyon sa komunidad nang walang legal na kapangyarihan, tulad ng pagpataw ng multa sa mga lumalabag sa lokal na ordinansa.</p></li>
+        <li><p><strong>Unauthorized Volunteer Work:</strong> Pagbibigay ng serbisyo o tulong sa kapwa sa paraang hindi sumusunod sa umiiral na batas o pamahalaang regulasyon, na maaaring magdulot ng legal na isyu.</p></li>
+    </ul>
+
+    <h1>III. MGA PATAKARAN AT BATAS</h1>
+
+<img src="p3.jpg" 
+     class="pic" 
+     alt="Paglilingkod" 
+     style="width: 100%; max-width: 400px; height: auto; display: block; margin: auto;">
+
+    <ul>
+        <li><p><strong>Republic Act No. 9163 (National Service Training Program Act):</strong> Nagbibigay ng programa para sa kabataan upang maisagawa ang Civic Welfare Training Service (CWTS), Literacy Training Service (LTS), at Reserve Officers’ Training Corps (ROTC).</p></li>
+        <li><p><strong>Republic Act No. 10844 (Creation of the Department of Information and Communications Technology):</strong> Nagbibigay ng serbisyo sa bayan sa pamamagitan ng makabagong teknolohiya at digital governance.</p></li>
+        <li><p><strong>Barangay Development Plan at Local Government Code (R.A. 7160):</strong> Nagtatakda ng mga patakaran kung paano dapat isagawa ang mga proyekto at serbisyo sa lokal na pamahalaan para sa ikabubuti ng komunidad.</p></li>
+        <li><p><strong>Republic Act No. 9003 (Ecological Solid Waste Management Act of 2000):</strong> Nagbibigay ng gabay at obligasyon sa bawat mamamayan na tumulong sa wastong pamamahala ng basura at kalikasan.</p></li>
+        <li><p><strong>Republic Act No. 6713 (Code of Conduct and Ethical Standards for Public Officials and Employees):</strong> Nagtataguyod ng etika, integridad, at serbisyo para sa publiko sa pamamagitan ng mga kawani ng pamahalaan.</p></li>
+    </ul>
+</section>
+
+
+<div id="cookieBox" class="cookie">
+    <strong>Palahandaan:</strong> Handa ka na bang simulan ang iyong 4th Quarter Araling Panlipunan Review?
+    <button id="acceptBtn" onclick="acceptCookie()">Handa na ako!</button>
+</div>
+
+</body>
+</html>

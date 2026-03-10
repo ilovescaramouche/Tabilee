@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="tl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noli Me Tangere | Klasikong Presentasyon</title>
+    <style>
+        /* CSS - DISENYONG ANTIGO */
+        body {
+            background-color: #d2b48c; /* Kulay ng lumang papel */
+            background-image: url('https://www.transparenttextures.com/patterns/paper-fibers.png'); /* Texture ng papel */
+            color: #3e2723;
+            font-family: 'Georgia', serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            text-align: center;
+            padding: 60px 20px;
+            border-bottom: 5px double #5d4037;
+            background-color: #e4d5b7;
+        }
+
+        header h1 {
+            font-size: 3.5rem;
+            margin: 0;
+            font-family: 'Times New Roman', serif;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            text-shadow: 2px 2px #c4a484;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 40px;
+            background: #fdf5e6; /* Off-white parchment */
+            border: 15px solid #5d4037;
+            border-image: url('https://www.transparenttextures.com/patterns/dark-matter.png') 30 round;
+            box-shadow: 10px 10px 30px rgba(0,0,0,0.3);
+        }
+
+        /* VIDEO SECTION (KLASIKONG ESTILO) */
+        .video-frame {
+            border: 2px solid #5d4037;
+            padding: 30px;
+            text-align: center;
+            margin-bottom: 50px;
+            background-image: url('https://www.transparenttextures.com/patterns/parchment.png');
+        }
+
+        .btn-play {
+            padding: 15px 35px;
+            background-color: #5d4037;
+            color: #fdf5e6;
+            text-decoration: none;
+            font-weight: bold;
+            border: 2px solid #3e2723;
+            display: inline-block;
+            transition: 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .btn-play:hover {
+            background-color: #795548;
+            transform: scale(1.05);
+        }
+
+        /* MGA TAUHAN (MUKHANG LUMANG DOKUMENTO) */
+        h2 {
+            text-align: center;
+            font-size: 2.2rem;
+            border-bottom: 1px solid #5d4037;
+            padding-bottom: 10px;
+            font-style: italic;
+        }
+
+        .char-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .char-card {
+            padding: 20px;
+            border: 1px solid #c4a484;
+            background: rgba(255, 255, 255, 0.5);
+            position: relative;
+        }
+
+        .char-card h3 {
+            margin-top: 0;
+            color: #8b0000; /* Deep Blood Red para sa diin */
+            border-bottom: 1px dashed #5d4037;
+        }
+
+        .char-card::before {
+            content: "❧"; /* Old ornamental symbol */
+            font-size: 20px;
+            color: #5d4037;
+            position: absolute;
+            top: 5px;
+            right: 10px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            font-style: italic;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive para sa mobile */
+        @media (max-width: 600px) {
+            .char-grid { grid-template-columns: 1fr; }
+            header h1 { font-size: 2rem; }
+        }
+
+/* NAVBAR STYLING - ANTIQUE THEME */
+#navbar {
+    background-color: #3e2723; /* Dark chocolate brown */
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 15px 0;
+    border-bottom: 3px double #d2b48c;
+    position: sticky; /* Mananatili sa taas habang nag-sscroll */
+    top: 0;
+    z-index: 1000;
+}
+
+#navbar a {
+    color: #d2b48c;
+    text-decoration: none;
+    padding: 10px 20px;
+    font-family: 'Georgia', serif;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+}
+
+#navbar a:hover {
+    color: #fdf5e6;
+    background-color: #5d4037;
+    border: 1px solid #d2b48c;
+    border-radius: 4px;
+}
+
+/* Ginagawang simple ang itsura sa mobile */
+@media (max-width: 768px) {
+    #navbar {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+    </style>
+</head>
+<body>
+
+
+<nav id="navbar">
+    <a href="Personal Info.html">Home</a>
+    <a href="ICT.html">1st & 2nd Qtr ICT</a>
+    <a href="AP.html">2nd Qtr AP</a>
+    <a href="ICT3RDQRT.html">3rd Qtr ICT</a>
+    <a href="AP4THQTR.html">4th Qtr AP</a>
+    <a href="ICT4THQUARTER.html">4th Qtr ICT</a>
+    <a href="NMT.html" style="color: #fff; font-weight: bold; border-bottom: 2px solid #fff;">Noli Me Tangere</a>
+</nav>
+
+<header>
+    <h1>Noli Me Tangere</h1>
+    <p>— Isang Alaala ng Kahapon —</p>
+</header>
+
+<div class="container">
+
+    <div class="video-frame">
+        <h2>9-FAMILY</h2>
+        <p>I-click ang button sa ibaba upang saksihan ang aming pagtatanghal.</p>
+        <a href="https://drive.google.com/file/d/1S_AuxlT-YRXd7fa8oveV1gddOMZrWzBi/view?usp=sharing" 
+           class="btn-play" target="_blank">
+           Buksan ang Bidyo
+        </a>
+    </div>
+
+    <h2>Mga Tauhan sa Kasaysayan</h2>
+    <div class="char-grid">
+        
+        <div class="char-card">
+            <h3>Crisostomo Ibarra</h3>
+            <p>Binatang nagmula sa Europa na may dalang makabagong kaisipan at nagnanais na itayo ang paaralan ng San Diego.</p>
+        </div>
+
+        <div class="char-card">
+            <h3>Maria Clara</h3>
+            <p>Ang paraluman ng San Diego. Sumasagisag sa kalinisan, pananampalataya, at ang masalimuot na tadhana ng kababaihan.</p>
+        </div>
+
+        <div class="char-card">
+            <h3>Elias</h3>
+            <p>Ang tagapagligtas at kaibigan ni Ibarra. Kumakatawan sa mga Pilipinong naghahanap ng katarungan sa labas ng batas.</p>
+        </div>
+
+        <div class="char-card">
+            <h3>Padre Damaso</h3>
+            <p>Isang mapang-aping kura na naging hadlang sa kaligayahan ng mga pangunahing tauhan sa loob ng maraming taon.</p>
+        </div>
+
+        <div class="char-card">
+            <h3>Sisa</h3>
+            <p>Isang inang naging biktima ng kalupitan ng lipunan, hanggang sa mawala sa sariling kaisipan sa paghahanap sa kanyang mga anak.</p>
+        </div>
+
+        <div class="char-card">
+            <h3>Pilosopo Tasyo</h3>
+            <p>Ang matandang tagapayo na ang karunungan ay itinuturing na kabaliwan ng mga taong hindi nakakaunawa sa katotohanan.</p>
+        </div>
+
+        <div class="char-card">
+            <h3>Kapitan Tiago</h3>
+            <p>Isang mayaman at maimpluwensyang tao na sumasagisag sa mga Pilipinong nagbubulag-bulagan sa kamalian ng mga banyaga.</p>
+        </div>
+
+        <div class="char-card">
+            <h3>Doña Victorina</h3>
+            <p>Isang Pilipina na pilit ikinakatwa ang sariling lahi at nagpapanggap na isang marangal na Kastila.</p>
+        </div>
+
+    </div>
+
+</div>
+
+<footer>
+    <p>Proyekto sa Filipino | Ika-9 na Baitang | Taong Panuruan 2026</p>
+    <p>— Jose Rizal, 1887 —</p>
+</footer>
+
+<script>
+    // Simpleng script para mag-fade in ang container
+    window.onload = function() {
+        document.querySelector('.container').style.opacity = "0";
+        setTimeout(() => {
+            document.querySelector('.container').style.transition = "opacity 2s";
+            document.querySelector('.container').style.opacity = "1";
+        }, 100);
+    };
+</script>
+
+</body>
+</html>

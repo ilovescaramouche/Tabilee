@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Lessons and Events</title>
+
+<style>
+
+body {
+    background-color: #eef2f3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    font-family: sans-serif;
+  }
+
+  /* The Container for all 4 images */
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columns, 2 rows */
+    gap: 20px;
+    padding: 20px;
+  }
+
+  /* The Style for each picture */
+  .pic {
+    width: 800px;
+    height: 600px;
+    object-fit: cover;
+    border-radius: 15px;
+    border: 4px solid #fff;
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: float 4s ease-in-out infinite;
+  }
+
+  /* Adding a delay so they float naturally (not all at once) */
+  .pic:nth-child(2) { animation-delay: 0.5s; }
+  .pic:nth-child(3) { animation-delay: 1s; }
+  .pic:nth-child(4) { animation-delay: 1.5s; }
+
+  /* Hover effect: Zoom and Glow */
+  .pic:hover {
+    transform: scale(1.1) rotate(2deg);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+    z-index: 10;
+    cursor: pointer;
+  }
+
+  /* The Floating Motion */
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+  }
+
+/* TOP NAVBAR - Green to Peach */
+#navbar{
+  position: fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:70px;
+  background: linear-gradient(90deg, #4ade80, #fcd34d); /* green to peach/yellow */
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:20px;
+  box-shadow:0 5px 20px rgba(0,0,0,0.3);
+  z-index:1000;
+}
+
+#navbar a{
+  color:#fff; /* white text for contrast */
+  text-decoration:none;
+  padding:10px 18px;
+  border-radius:10px;
+  font-weight:bold;
+  transition:0.3s;
+}
+
+#navbar a:hover{
+  background:#bbf7d0; /* light green-peach hover */
+  color:#15803d; /* dark green text on hover */
+  transform:scale(1.1);
+}
+
+
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+font-family:Segoe UI, sans-serif;
+margin:0;
+background:linear-gradient(120deg,#dfeee1,#e7d2b5,#d6e6d6);
+background-size:400% 400%;
+animation:bgMove 12s infinite alternate;
+}
+
+@keyframes bgMove{
+0%{background-position:left}
+100%{background-position:right}
+}
+
+/* SIDEBAR */
+
+.sidebar{
+position:fixed;
+left:0;
+top:0;
+width:220px;
+height:100%;
+background:#2f4f2f;
+padding-top:40px;
+box-shadow:3px 0 10px rgba(0,0,0,0.3);
+}
+
+.sidebar a{
+display:block;
+color:white;
+text-decoration:none;
+padding:15px;
+font-size:18px;
+transition:0.3s;
+}
+
+.sidebar a:hover{
+background:#6b8e6b;
+padding-left:25px;
+}
+
+/* MAIN CONTENT */
+
+.main{
+margin-left:240px;
+padding:40px;
+}
+
+/* TITLES */
+
+h1{
+color:#2f4f2f;
+text-shadow:2px 2px 5px rgba(0,0,0,0.2);
+animation:floatTitle 3s infinite ease-in-out;
+}
+
+@keyframes floatTitle{
+0%{transform:translateY(0)}
+50%{transform:translateY(-6px)}
+100%{transform:translateY(0)}
+}
+
+h2{
+color:#5a3e2b;
+}
+
+/* CARDS */
+
+.card{
+background:white;
+padding:25px;
+margin:20px 0;
+border-radius:15px;
+box-shadow:0 8px 20px rgba(0,0,0,0.15);
+transition:0.4s;
+}
+
+.card:hover{
+transform:translateY(-10px) scale(1.02);
+box-shadow:0 15px 30px rgba(0,0,0,0.35);
+}
+
+/* BUTTONS */
+
+button{
+padding:12px 20px;
+margin:10px;
+border:none;
+border-radius:10px;
+font-size:16px;
+background:linear-gradient(45deg,#6b8e6b,#c9a66b);
+color:white;
+cursor:pointer;
+transition:0.3s;
+}
+
+button:hover{
+transform:scale(1.1);
+box-shadow:0 0 15px rgba(0,0,0,0.4);
+}
+
+/* COOKIE BAR */
+
+.cookie{
+position:fixed;
+bottom:0;
+left:0;
+width:100%;
+background:#5a3e2b;
+color:white;
+padding:15px;
+text-align:center;
+display:none;
+}
+
+.cookie button{
+background:#c9a66b;
+margin-left:10px;
+}
+
+</style>
+
+<script>
+
+window.onload=function(){
+alert("Welcome! Explore the Lessons and Events Page.");
+document.getElementById("cookieBox").style.display="block";
+}
+
+function showAlert(){
+alert("You clicked the Alert Button!");
+}
+
+function confirmAction(){
+var result=confirm("Do you like learning JavaScript?");
+if(result){
+alert("Great! JavaScript is powerful.");
+}else{
+alert("No worries! Keep practicing.");
+}
+}
+
+function askName(){
+var name=prompt("Enter your name:");
+if(name){
+alert("Hello "+name+"! Welcome!");
+}
+}
+
+function acceptCookie(){
+document.getElementById("cookieBox").style.display="none";
+}
+
+</script>
+
+</head>
+
+<body>
+
+<nav id="navbar">
+  <a href="ICT.html">1ST AND 2ND QUARTER ICT</a>
+  <a href="AP.html">2ND QUARTER AP</a>
+  <a href="ICT3RDQRT.html">3RD QUARTER ICT</a>
+  <a href="AP4THQTR.html">4TH QUARTER AP</a>
+  <a href="ICT4THQUARTER.html">4TH QUARTER ICT</a>
+<a href="NMT.html">Noli Me Tangere</a>
+
+</nav>
+
+<!-- SIDEBAR -->
+
+<div class="sidebar">
+
+<a href="#lessons">Lessons</a>
+<a href="#events">Events</a>
+<a href="#javascript">JavaScript</a>
+
+</div>
+
+<div class="main">
+
+<!-- LESSONS -->
+
+<h1 id="lessons">I. LESSONS</h1>
+
+<div class="card">
+<h2>1. Introduction to Java Script</h2>
+<ul>
+<li>
+Here, I learned the history of JavaScript, coming from an owner named Brendan Eich, from naming it to LiveScript and then to Mocha, its really an interesting fact on how JavaScript has upgraded fast to its never-ending high limits. I also learned about the different types of characteristics of JavaScript, coming from a Client-side scripting focusing more on the updates to the clients, and to the high-level of using english language, and then to the interpreted, I also learned that it can go from Form Validation, to Events, and lastly to Cookies for the data saving and assessment.
+</li>
+</ul>
+</div>
+
+<img src="11.jpg" class="pic" alt="Image 1" style="max-width: 100%; height: auto;">
+
+
+<div class="card">
+<h2>2. JavaScript codes placement and Guidlines</h2>
+<ul>
+<li>
+Here, I simply learned the does and donts of the JavaScript, coming from it being a case sensitive, to its white spaces, and learning the difference of breaking up codes to make it seem easier and cleaner to look at. I also learned the different of putting the code in the head, or body, or both, depending on my preference and what availability I want.
+</li>
+</ul>
+</div>
+
+<img src="12.jpg" class="pic" alt="Image 2" style="max-width: 100%; height: auto;">
+
+
+<div class="card">
+<h2>3. Rules for JavaScript and Characteristics</h2>
+<ul>
+<li>
+Here I learned about the rules that JavaScript has to offer. I learned about its characteristics being a Client-side scripting where updates and loads are shown on time to the users screen and avoids delay to them. I learned that it is a Interpreted language and a Scripting language letting users repeat data. I also learned about the different types of variables such as characteristics, integer, Float, and string, and so many more.
+</li>
+</ul>
+</div>
+
+<img src="13.jpg" class="pic" alt="Image 3" style="max-width: 100%; height: auto;">
+
+
+<div class="card">
+<h2>4. Events and Variables</h2>
+<ul>
+<li>
+Here, I learned about the meaning of events where the user clicks or any preloaded event happens when the object or elements are clicked. I learned about the pop-up boxes and the different types of boxes, such as alert box, confirm box, and user-input prompt box letting the website submit data that i prefer or the user prefers and wants to use. I also learned about Variables not just about numbers, but also Logical Operators that will help me do math easily and calculate easily.
+</li>
+</ul>
+</div>
+
+<img src="14.jpg" class="pic" alt="Image 4" style="max-width: 100%; height: auto;">
+
+
+<!-- EVENTS -->
+
+<h1 id="events">II. EVENTS</h1>
+
+<div class="card">
+<h2>1. Streetdance</h2>
+<ul>
+<li>
+Streetdance did not only mean things about dancing and hip-hop, it also meant the bonds that were made. It made me appreciate street song styles more and made me like and go deeper more into it than before. I appreciate these dances now more than ever before.
+</li>
+</ul>
+</div>
+
+<img src="AA.jpg" class="pic" alt="STREETDANCE" style="max-width: 100%; height: auto;">
+
+
+<div class="card">
+<h2>2. Folk Dance</h2>
+<ul>
+<li>
+My Batch did not only represent themselves, but also the whole and entire community. They have done this war dance that is very challenging, but it thought me, if you give your all and best into it. It will go to a much and bigger opportunity. These songs are not just a simple song, but a culture that was made a long time ago and we should take care and teach more people about it.
+</li>
+</ul>
+</div>
+
+<img src="BB.jpg" class="pic" alt="Folk Dance" style="max-width: 100%; height: auto;">
+
+
+<div class="card">
+<h2>3. Battle of the Bands</h2>
+<ul>
+<li>
+Battle of the bands is a mix of singing, instrumental, and ofcourse the music that has a little bit of mix within things and within songs. The songs that represent not only our culture. But have shaped every single individual and every single one of us. This event does not only represent the winners, but also the unity and effort everyone has placed and gived in to make this event possible and to happen for many people to sing to or listen to the amazing voices.
+</li>
+</ul>
+
+</div>
+
+<img src="CC.jpg" class="pic" alt="STREETDANCE" style="max-width: 100%; height: auto;">
+
+
+<!-- JAVASCRIPT -->
+
+<h1 id="javascript">III. JAVASCRIPT INTERACTION</h1>
+
+<button onclick="showAlert()">Alert Box</button>
+<button onclick="confirmAction()">Confirm Box</button>
+<button onclick="askName()">Prompt Box</button>
+
+</div>
+
+<div class="cookie" id="cookieBox">
+This website uses cookies to improve your experience.
+<button onclick="acceptCookie()">Accept</button>
+</div>
+
+</body>
+</html>

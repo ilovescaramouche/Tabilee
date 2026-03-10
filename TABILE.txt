@@ -1,0 +1,65 @@
+
+<!DOCTYPE html>
+<html>
+<head> <title> MY 2ND QUARTER PORTFOLIO'S </title>
+<style type="text/css">
+
+<style>
+
+body {
+  margin: 0;
+  padding: 0;font-family: "Verdana", sans-serif;
+    background-color: #f5fbff;
+    margin: 0;
+    padding: 0;
+}
+
+h2, p {
+  margin: 10px;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 15px;
+  overflow: hidden;
+  background-color: #333333;
+}
+
+ul li {
+  float: left;
+}
+
+ul li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+ul li a:hover {
+  background-color: #111111;
+}
+</style>
+</head>
+<body>
+
+<ul>
+  <li><a href="ICT.html"> 2ND QUARTER ICT</a></li>
+  <li><a href="AP.html"> 2ND QUARTER AP</a></li>
+  <li><a href="Personal Info.html">My Personal Reflection</a></li>
+</ul>
+
+<h2> Hello! This is my Personal Website and Welcome! </h2>
+<hr>
+<p>I am Gabriel Jim B. Tabile and I am here to show my output for this years 2nd quarter Portfolio, About my Personal Information, Araling Panlipunan Portfolio, and my ICT Portfolio.</p>
+<hr>
+<p> I hope you guys enjoy and will come back again after you finish reading this! </p>
+<hr>
+<p> Please give respect or show respect to the following outputs that you will see. </p>
+
+
+
+</body>
+</html>
